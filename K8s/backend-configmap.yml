@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-configmap
+  namespace: ecommerce
+data:
+  PORT: "5000"
+  HOST: "http://localhost:5173"
+  MONGO_URL: "mongodb://localhost:27017/ECommerce"
+  ADMIN_USERNAME: "Jarvistony"
+  ADMIN_EMAIL: "watchwolverine2468@gmail.com"
+  ADMIN_PASSWORD: "Subha@2003"
+  CLOUDINARY_CLOUD_NAME: "detygjvla"
+  CLOUDINARY_API_KEY: "552888627931517"
+  CLOUDINARY_API_SECRET: "f1BV9ZFllUUnajaBrBwBOSAHqIU"
+  PAYPAL_MODE: "sandbox"
+  PAYPAL_CLIENT_ID: "AX9TcB5vLPGr4pJ51NsOxkdLY31MuFAVBT4NqHmmS96XgEyUPmlLHkDKJoMlq1CsE4TjdEn6CONb2OXB"
+  PAYPAL_CLIENT_SECRET: "EPiFGESKJXOOquAD22DMCLTlmWMOuO9MQCDUH4LrdgJmvWJ6NrIpEVJk5lKH90w37GFyi9UxeO_tQrzp"

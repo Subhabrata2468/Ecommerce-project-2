@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-configmap
+  namespace: ecommerce
+data:
+  VITE_HOST: "http://localhost:5000"

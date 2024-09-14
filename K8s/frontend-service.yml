@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: ecommerce
+spec:
+  selector:
+    app: frontend-container
+  ports:
+  - protocol: TCP
+    port: 5173
+    targetPort: 5173
+    nodePort: 30970
+  type: NodePort

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-container
+  template:
+    metadata:
+      labels:
+        app: frontend-container
+    spec:
+      containers:
+      - name: frontend
+        image: subhabrata3002/ecommerce-client-repo:latest
+        envFrom:
+        - configMapRef:
+            name: client-configmap
+        ports:
+        - containerPort: 5173
+        resources: # Moved resources field inside the container definition
+          requests:
+            memory: "1024Mi"
+            cpu: "500m"
+          limits:
+            memory: "2048Mi"
+            cpu: "750m"
+      automountServiceAccountToken: false

@@ -1,0 +1,83 @@
+stages:
+- checkout
+- install_dependencies
+- build_and_push_CLIENT
+- build_and_push_server
+- clean_up
+
+variables:
+  DOCKERHUB_CREDENTIALS: "${dockerhub_to_jenkins}" # GitLab secret for DockerHub credentials
+  DOCKERHUB_USERNAME: "subhabrata3002"
+  CLIENT_REPO: "${CI_PROJECT_NAME}/client-repo"
+  SERVER_REPO: "${CI_PROJECT_NAME}/server-repo"
+
+
+checkout_code:
+  stage: checkout
+  script:
+  # Clone the repository into a subdirectory 'project'
+  - git clone -b correct https://gitlab.com/Subhabrata2468/ecommerce.git project
+  artifacts:
+    expire_in: 48 hour
+    paths:
+    - project
+
+install_dependencies:
+  stage: install_dependencies
+  image: node:21
+  script:
+  # Install npm dependencies for the server
+  - cd project/server && npm install
+  # Install npm dependencies for the client directory
+  - cd ../client && npm install
+  artifacts:
+    expire_in: 48 hour
+    paths:
+    - project
+
+docker_build_and_push_CLIENT:
+  stage: build_and_push_CLIENT
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+  # Log in to Docker Hub
+  - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_CREDENTIALS"
+  # Build Docker image for the client directory
+  - docker build -t "$CLIENT_REPO:v1.$CI_JOB_ID" project/client
+  # Tag and push the Docker image to Docker Hub
+  - docker tag "$CLIENT_REPO:v1.$CI_JOB_ID" "$DOCKERHUB_USERNAME/ecommerce-client-repo:v1.$CI_JOB_ID"
+  - docker tag "$CLIENT_REPO:v1.$CI_JOB_ID" "$DOCKERHUB_USERNAME/ecommerce-client-repo:latest"
+  - docker push "$DOCKERHUB_USERNAME/ecommerce-client-repo:v1.$CI_JOB_ID"
+  - docker push "$DOCKERHUB_USERNAME/ecommerce-client-repo:latest"
+  artifacts:
+    expire_in: 48 hour
+    paths:
+    - project
+
+docker_build_and_push_server:
+  stage: build_and_push_server
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+  # Log in to Docker Hub
+  - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_CREDENTIALS"
+  # Build Docker image for the server directory
+  - docker build -t "$SERVER_REPO:v1.$CI_JOB_ID" project/server
+  # Tag and push the Docker image to Docker Hub
+  - docker tag "$SERVER_REPO:v1.$CI_JOB_ID" "$DOCKERHUB_USERNAME/ecommerce-server-repo:v1.$CI_JOB_ID"
+  - docker tag "$SERVER_REPO:v1.$CI_JOB_ID" "$DOCKERHUB_USERNAME/ecommerce-server-repo:latest"
+  - docker push "$DOCKERHUB_USERNAME/ecommerce-server-repo:v1.$CI_JOB_ID"
+  - docker push "$DOCKERHUB_USERNAME/ecommerce-server-repo:latest"
+
+cleanup:
+  stage: clean_up
+  script:
+  # Remove Docker images to free up space
+  - docker rmi "$CLIENT_REPO:v1.$CI_JOB_ID" || true
+  - docker rmi "$SERVER_REPO:v1.$CI_JOB_ID" || true
+  - docker rmi "$DOCKERHUB_USERNAME/ecommerce-client-repo:v1.$CI_JOB_ID" || true
+  - docker rmi "$DOCKERHUB_USERNAME/ecommerce-client-repo:latest" || true
+  - docker rmi "$DOCKERHUB_USERNAME/ecommerce-server-repo:v1.$CI_JOB_ID" || true
+  - docker rmi "$DOCKERHUB_USERNAME/ecommerce-server-repo:latest" || true

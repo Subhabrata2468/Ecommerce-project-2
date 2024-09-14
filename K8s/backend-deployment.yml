@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: ecommerceS
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-container
+  template:
+    metadata:
+      labels:
+        app: backend-container
+    spec:
+      initContainers:
+      - name: wait-for-mongodb-respond
+        image: busybox
+        command:
+        - 'sh'
+        - '-c'
+        - >
+          until nc -z -w 5 mongodb-service 27017; do
+            echo "Waiting for MongoDB to be ready..."
+            sleep 5
+          done
+
+      containers:
+      - name: backend
+        image: subhabrata3002/ecommerce-server-repo:latest
+        envFrom:
+        - configMapRef:
+            name: server-configmap
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+
+      automountServiceAccountToken: false
