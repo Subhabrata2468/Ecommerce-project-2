@@ -8,5 +8,5 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-  storageClassName: gp2-storage-class # Reference the StorageClass created
+      storage: 10Gi # This should match the PV's capacity
+  storageClassName: manual # Ensure this matches the PV's storageClassName
