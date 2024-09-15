@@ -8,7 +8,7 @@ data:
   HOST: "http://localhost:5173"
   MONGO_URL: "mongodb://localhost:27017/ECommerce"
   ADMIN_USERNAME: "Jarvistony"
-  ADMIN_EMAIL: "watchwolverine2468@gmail.com"
+  ADMIN_EMAIL: "Subha.Panda2003@gmail.com"
   ADMIN_PASSWORD: "Subha@2003"
   CLOUDINARY_CLOUD_NAME: "detygjvla"
   CLOUDINARY_API_KEY: "552888627931517"
