@@ -16,7 +16,7 @@ checkout_code:
   stage: checkout
   script:
   # Clone the repository into a subdirectory 'project'
-  - git clone -b correct https://gitlab.com/Subhabrata2468/ecommerce.git project
+  - git clone -b master https://$Subhabrata2468:$GitLab_token_ecommerce@gitlab.com/Subhabrata2468/ecommerce.git project
   artifacts:
     expire_in: 48 hour
     paths:
