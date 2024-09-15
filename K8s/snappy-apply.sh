@@ -25,6 +25,4 @@ kubectl apply -f frontend-service.yml
 kubectl apply -f hpa-frontend.yml
 
 
-#kubectl apply -f default-backend.yml
-#kubectl apply -f ingress.yml
 echo "All Kubernetes resources have been applied."
