@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 5173
 
-CMD ["npm","start","dev"]
+CMD ["npm","start","dev","--","--host"]
