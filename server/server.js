@@ -39,6 +39,13 @@ mongoose.connect(MONGO_URL, {
 const app = express();
 const PORT = process.env.PORT;
 
+
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the backend server!');
+});
+
+
 app.use(
   cors({
     origin: process.env.HOST,
