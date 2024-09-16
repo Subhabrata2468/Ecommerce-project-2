@@ -6,7 +6,7 @@
 #kubectl delete pods,services,deployments,horizontalpodautoscaler --all -n shopping 
 
 # Apply MongoDB deployment and service
-kubectl apply -f storageClass-for-mongos.yml
+kubectl apply -f persistantVolume-for-mongos.yml
 kubectl apply -f persistentVolumeClaim.yml
 kubectl apply -f mongo-deployment.yml
 kubectl apply -f mongo-service.yml
