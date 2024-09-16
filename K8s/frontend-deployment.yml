@@ -23,9 +23,9 @@ spec:
         - containerPort: 5173
         resources: # Moved resources field inside the container definition
           requests:
-            memory: "1024Mi"
-            cpu: "500m"
+            memory: "2000Mi"
+            cpu: "900m"
           limits:
             memory: "2048Mi"
-            cpu: "750m"
+            cpu: "1000m"
       automountServiceAccountToken: false
