@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 
 app.use(
   cors({
-    origin: process.env.HOST,
+    origin: [process.env.HOST,process.env.HOST1],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
