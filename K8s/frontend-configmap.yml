@@ -4,4 +4,4 @@ metadata:
   name: client-configmap
   namespace: ecommerce
 data:
-  VITE_HOST: "http://localhost:5000"
+  VITE_HOST: "http://localhost:30980"
