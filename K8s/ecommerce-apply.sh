@@ -1,9 +1,8 @@
 #!/bin/bash
 
 
-#kubectl create namespace shopping
-
-#kubectl delete pods,services,deployments,horizontalpodautoscaler --all -n shopping 
+# To delete all services
+kubectl delete all --all -n ecommerce
 
 # Apply MongoDB deployment and service
 kubectl apply -f persistantVolume-for-mongos.yml
