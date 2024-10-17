@@ -5,8 +5,8 @@ metadata:
   namespace: ecommerce
 data:
   PORT: "5000"
-  HOST: "http://54.156.141.119:5173"
-  HOST1: "http://54.156.141.119:30970"
+  HOST: "http://54.175.152.184:5173"
+  HOST1: "http://54.175.152.184:30970"
   MONGO_URL: "mongodb://mongodb-service/Ecommerce"
   ADMIN_USERNAME: "Jarvistony"
   ADMIN_EMAIL: "Subha.Panda2003@gmail.com"
