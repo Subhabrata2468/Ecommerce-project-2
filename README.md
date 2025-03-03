@@ -36,5 +36,29 @@
 
 ## 📸  Screenshots
 
+Working_ec2_instances
+![Working_ec2_instances](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Working_ec2_instaances.png)
 
+Jenkins_Dashboard
+![Jenkins_Dashboard](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Jenkins_Dashboard.png)
 
+Jenkins_CICD
+![Jenkins_CICD](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Jenkins%20_CICD.png)
+
+Dockerhub
+![Dockerhub](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Dockerhub.png)
+
+Sonarqube_Analysis
+![Sonarqube_Analysis](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Sonarqube_Analysis.png)
+
+All_working_Kubernetes_pods
+![All_working_Kubernetes_pods](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/All_working_Kubernetes_pods.png)
+
+Metrics_collector_Prometheus
+![Metrics_collector_Prometheus](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Metrics_colllector_Grafana.png)
+
+Monitoring_Jenkins
+![Monitoring_Jenkins](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Monitoring_Jenkins.png)
+
+Monitoring_Kubernetes
+![Monitoring_Kubernetes](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Screenshots/Monitoring_Kubernetes.png)
