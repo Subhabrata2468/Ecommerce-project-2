@@ -3,7 +3,8 @@
 
 🚀 **This project demonstrates an End-to-End DevSecOps pipeline leveraging the MERN Stack (React, Redux Toolkit, Tailwind, MongoDB) with a focus on security, code quality, and continuous deployment using AWS, Kubernetes, Jenkins, and other robust tools.**
 
-## 
+## 📽️ Demo Video
+![[[Ecommerce-presentation](https://github.com/Subhabrata2468/Ecommerce-project-2/blob/master/Ecommerce-presentation.gif)]]
 
 ## 🌟 Key Highlights
 
