@@ -34,8 +34,7 @@
 - **Version Control:** Git
 - **Package Management:** NPM
 
-## 🚀 Deployment Instructions
+## 📸  Screenshots
 
-### 1. Using Docker Compose
-```bash
-docker-compose up --build
+
+
